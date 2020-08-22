@@ -1,4 +1,4 @@
-package com.mockito.example.mockitodemo;
+package com.mockito.example.mockitodemo.business;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

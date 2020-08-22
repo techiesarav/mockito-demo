@@ -1,4 +1,4 @@
-package com.mockito.example.mockitodemo;
+package com.mockito.example.mockitodemo.business;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -10,12 +10,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.mockito.example.mockitodemo.business.SampleBusinessImpl;
 import com.mockito.example.mockitodemo.service.SampleDataService;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 public class MockitoDemoApplicationTests {
 
 	@InjectMocks

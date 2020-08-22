@@ -10,6 +10,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+
 
 @WebMvcTest(HelloWorldController.class)
 public class HelloWorldControllerTest {
@@ -22,8 +25,13 @@ public class HelloWorldControllerTest {
 		RequestBuilder requestBuilder = MockMvcRequestBuilders
 				                        .get("/hello-world")
 				                        .accept(MediaType.APPLICATION_JSON);
-		MvcResult result=mockMvc.perform(requestBuilder).andReturn();
-		assertEquals("Helloworld",result.getResponse().getContentAsString());
+		MvcResult result=mockMvc
+				.perform(requestBuilder)
+				.andExpect(status().isOk())
+				.andExpect(content().string("Helloworld"))
+				.andReturn();
+		//Verify Content
+//		assertEquals("Helloworld",result.getResponse().getContentAsString());
 		
 	}
 }
